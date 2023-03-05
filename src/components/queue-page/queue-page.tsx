@@ -127,22 +127,24 @@ export const QueuePage = () => {
 
       </form>
 
-      {arrayQueue && <ul className={styles.list}>
-        {arrayQueue.map((item, index) => {
-          return (
-            <li key={index}>
+      {arrayQueue && 
+        <ul className={styles.list}>
+          {arrayQueue.map((item, index) => {
+            return (
+              <li key={index}>
 
-              <Circle
-                letter={item}
-                index={index}
-                tail={tail <= head! ? '' : tail - 1 === index ? 'tail' : ''}
-                head={head === null ? '' : head === index ? 'head' : ''}
-                state={index === currentIndex ? ElementStates.Changing : ElementStates.Default}
-              />
-            </li>
-          )
-        })}
-      </ul>}
+                <Circle
+                  letter={item}
+                  index={index}
+                  tail={tail <= head! ? '' : tail - 1 === index ? 'tail' : ''}
+                  head={head === null ? '' : head === index ? 'head' : ''}
+                  state={index === currentIndex ? ElementStates.Changing : ElementStates.Default}
+                />
+              </li>
+            )
+          })}
+        </ul>
+      }
 
       {error &&
         <div className={styles.error}>Извините, но очередь полна. Очистите или удалите элемент из очереди.'</div>
