@@ -11,7 +11,7 @@ import styles from './queue.module.css';
 
 
 export const QueuePage = () => {
-  const queueCount = 3;
+  const queueCount = 8;
   const queue = useRef(new Queue<string>(queueCount))
   const [arrayQueue, setArrayQueue] = useState<(string | undefined)[]>(queue.current.getArray());
   const abra = queue.current.isError;
@@ -77,7 +77,11 @@ export const QueuePage = () => {
 
 
   const clear = () => {
-
+    queue.current.clear();
+    setArrayQueue([...queue.current.getArray()]);
+    setHead(null);
+    setTail(queue.current.getTail());
+    setBtnDisabled({...btnDisabled, remove: true});
   }
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -140,8 +144,9 @@ export const QueuePage = () => {
         })}
       </ul>}
 
-
-
+      {error &&
+        <div className={styles.error}>Извините, но очередь полна. Очистите или удалите элемент из очереди.'</div>
+      } 
     </SolutionLayout>
 
     
