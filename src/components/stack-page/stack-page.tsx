@@ -90,20 +90,22 @@ export const StackPage = () => {
 
       </form>
 
-      {array && <ul className={styles.list}>
-        {array.map((item, index) => {
-          return (
-            <li key={index}>
-              <Circle
-                letter={item.value}
-                index={index}
-                head={index === array.length - 1 ? 'top' : ''}
-                state={item.state}
-              />
-            </li>
-          )
-        })}
-      </ul>}
+      {array && 
+        <ul className={styles.list}>
+          {array.map((item, index) => {
+            return (
+              <li key={index}>
+                <Circle
+                  letter={item.value}
+                  index={index}
+                  head={index === array.length - 1 ? 'top' : ''}
+                  state={item.state}
+                />
+              </li>
+            )
+          })}
+        </ul>
+      }
     </SolutionLayout>
   );
 };
