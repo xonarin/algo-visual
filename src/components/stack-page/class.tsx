@@ -1,14 +1,9 @@
-import { ElementStates } from "../../types/element-states";
+import { ElementStates, IArray } from "../../types/element-states";
 
 interface IStack<T> {
     push: (item: T) => void;
     pop: () => void;
     clear: () => void;
-}
-
-export interface IArray {
-  value: string,
-  state: ElementStates,
 }
 
 export class Stack implements IStack<IArray> {
