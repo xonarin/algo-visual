@@ -1,6 +1,6 @@
-import { debug } from "console";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
+import { maxLengthString } from "../../constants/min-max";
 import { delay, swap, stateCircleIndex } from "../../utils/utils";
 import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
@@ -11,28 +11,23 @@ import styles from './string.module.css';
 export const StringComponent = () => {
   const [stringInput, setStringInput] = useState<string>('');
   const [stringArray, setStringArray] = useState<string[]>([]);
-  const [btnLoader, setBtnLoader] = useState({ add: false, remove: false });
+  const [btnLoader, setBtnLoader] = useState({ add: false });
   const [btnDisabled, setBtnDisabled] = useState({ add: true });
   const [stateIndex, setStateIndex] = useState({start: 0, end: 0});
 
   const stringReverse = async (string: string) => {
     const split = string.split('');
-    setStringArray([...split]);
-    console.log(stringArray); 
+    setStringArray([...split]); 
 
     let start = 0;
     let end = split.length - 1;
-    const middle = Math.floor((start + end) / 2);
 
     while (start <= end) {
       setStateIndex({start: start, end: end});
       await delay(SHORT_DELAY_IN_MS);
 
-      debugger
       swap(split, start, end); // Здесь мы поменяли значения местами и вернули результат обратно в split
-      debugger
       setStringArray([...split]); // перезаписали
-      debugger
 
       end--;
       start++;
@@ -47,6 +42,7 @@ export const StringComponent = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     setBtnLoader({...btnLoader, add: true});
+    setBtnDisabled({...btnDisabled, add: true}); 
     stringReverse(stringInput);
     setStringInput('');
   }
@@ -62,7 +58,7 @@ export const StringComponent = () => {
     <SolutionLayout title="Строка">
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input
-          maxLength={11}
+          maxLength={maxLengthString}
           isLimitText={true}
           placeholder="Введите значение"
           onChange={onChange}
@@ -81,7 +77,6 @@ export const StringComponent = () => {
           {stringArray.map((item, index) => {
             return (
               <li key={index}>
-                {item}
                 <Circle 
                   state={
                     stateCircleIndex(stateIndex.start, stateIndex.end, index)

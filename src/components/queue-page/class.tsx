@@ -35,7 +35,7 @@ export class Queue<T> implements IQueue<T> {
     if (this._head === this._size - 1) {
       this._array[this._head % this._size] = undefined;
       return this
-    } else if (!this.isEmpty()) {
+    } else if (!this.isEmpty) {
       this._array[this._head % this._size] = undefined;
       this._head++;
       this._length--;
@@ -57,6 +57,8 @@ export class Queue<T> implements IQueue<T> {
 
   getSize = () => this._array.length;
 
-  isEmpty = () => this._length === 0;
+  get isEmpty() {
+   return this._length === 0
+  }
   isError = () => this._error;
 }

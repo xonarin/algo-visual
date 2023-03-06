@@ -8,6 +8,7 @@ import { Circle } from "../ui/circle/circle";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 import { delay } from "../../utils/utils";
 import styles from './stack.module.css';
+import { maxLengthStack } from "../../constants/min-max";
 
 export const StackPage = () => {
   const stack = useRef(new Stack())
@@ -27,7 +28,6 @@ export const StackPage = () => {
     stack.current.changeState(array.length - 1, ElementStates.Default);
     setBtnLoader({...btnLoader, add: false});
     setBtnDisabled({...btnDisabled, add: true, remove: false}); 
-    console.log(array)
   }
 
   const removeStackItem = async () => {
@@ -51,7 +51,6 @@ export const StackPage = () => {
     const target = event.target.value;
     setStackInput(target);
     setBtnDisabled({...btnDisabled, add: target ? false : true}); 
-    console.log(target)
   }
 
   return (
@@ -59,7 +58,7 @@ export const StackPage = () => {
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input
           type="text" 
-          maxLength={4}
+          maxLength={maxLengthStack}
           placeholder="Введите значение"
           isLimitText={true}
           onChange={onChange}
@@ -86,8 +85,6 @@ export const StackPage = () => {
           extraClass={styles.ml80}
           disabled={btnDisabled.remove}
         />
-
-
       </form>
 
       {array && 
