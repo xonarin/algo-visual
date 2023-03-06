@@ -47,6 +47,7 @@ export const SortingPage = () => {
     }
   }
 
+
   const selectionSort = async (arr: IArraySort[], type: SortingTypes) => {
     const generator = generateSelectionSort(arr, type);
     for (let i = 0; i < arr.length - 1; i++) {
