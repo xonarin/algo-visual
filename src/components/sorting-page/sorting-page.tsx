@@ -13,7 +13,6 @@ import { generateBubbleSort, generateSelectionSort } from "./utils";
 
 export const SortingPage = () => {
   const [array, setArray] = useState<IArraySort[]>([]);
-  const [copyArray, setCopyArray] = useState<IArraySort[]>([]);
   const [radioChecked, setRadioChecked] = useState({ selection: true, bubble: false });
   const [btnLoader, setBtnLoader] = useState({ ascending: false, descending: false, arrload: false });
 
@@ -31,7 +30,6 @@ export const SortingPage = () => {
     }
     
     setArray([...sortArray]);
-    setCopyArray([...sortArray]);
     setBtnLoader({...btnLoader, arrload: false});
   }
 
@@ -77,12 +75,12 @@ export const SortingPage = () => {
 
   const handleClickAscending = () => {
     setBtnLoader({ ...btnLoader, ascending: true, descending: false });
-    (radioChecked.selection) ? selectionSort(copyArray, SortingTypes.Ascending) : bubbleSort(copyArray, SortingTypes.Ascending);
+    (radioChecked.selection) ? selectionSort(array, SortingTypes.Ascending) : bubbleSort(array, SortingTypes.Ascending);
   }
 
   const handleClickDescending = () => {
     setBtnLoader({ ...btnLoader, ascending: false, descending: true });
-    (radioChecked.selection) ? selectionSort(copyArray, SortingTypes.Descending) : bubbleSort(copyArray, SortingTypes.Descending);
+    (radioChecked.selection) ? selectionSort(array, SortingTypes.Descending) : bubbleSort(array, SortingTypes.Descending);
   }
 
 
