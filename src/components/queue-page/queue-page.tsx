@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 import { maxLengthQueue } from "../../constants/min-max";
+import {HEAD, TAIL} from "../../constants/element-captions";
 import { ElementStates } from "../../types/element-states";
 import { delay } from "../../utils/utils";
 import { Button } from "../ui/button/button";
@@ -118,8 +119,8 @@ export const QueuePage = () => {
                 <Circle
                   letter={item}
                   index={index}
-                  tail={tail <= head! ? '' : tail - 1 === index ? 'tail' : ''}
-                  head={head === null ? '' : head === index ? 'head' : ''}
+                  tail={tail <= head! ? '' : tail - 1 === index ? TAIL : ''}
+                  head={head === null ? '' : head === index ? HEAD : ''}
                   state={index === currentIndex ? ElementStates.Changing : ElementStates.Default}
                 />
               </li>
