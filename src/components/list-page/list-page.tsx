@@ -11,6 +11,15 @@ import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 import { ElementStates } from "../../types/element-states";
 import styles from "./list.module.css";
 
+const defaultArray = [
+  { value: '0', state: ElementStates.Default },
+  { value: '34', state: ElementStates.Default },
+  { value: '8', state: ElementStates.Default },
+  { value: '1', state: ElementStates.Default },
+  { value: '3', state: ElementStates.Default },
+  { value: '54', state: ElementStates.Default }
+]
+
 export const ListPage = () => {
   const [inputValues, setInputValues] = useState({ value: '', index: '' });
   const [addCircle, setAddCircle] =useState({ index: -1, element: { value: '', state: ElementStates.Changing } });
@@ -18,22 +27,12 @@ export const ListPage = () => {
   const [disabled, setDisabled] = useState(false);
   const [btnLoader, setBtnLoader] = useState({ index: false, tail: false, head: false });
   const [deleteLoader, setDeleteLoader] = useState({ index: false, tail: false, head: false });
-
-  const defaultArray = [
-    { value: '0', state: ElementStates.Default },
-    { value: '34', state: ElementStates.Default },
-    { value: '8', state: ElementStates.Default },
-    { value: '1', state: ElementStates.Default },
-    { value: '3', state: ElementStates.Default },
-    { value: '54', state: ElementStates.Default }
-]
+  const linkedList =useRef(new LinkedList(defaultArray));
+  const data = linkedList.current.getData();
 
   const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValues({ ...inputValues, [event.target.name]: event.target.value });
   };
-
-  const linkedList =useRef(new LinkedList(defaultArray));
-  const data = linkedList.current.getData();
 
   const addTail = async (item: string) => {
     setDisabled(true);
