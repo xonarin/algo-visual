@@ -1,0 +1,40 @@
+.container {
+    width: 952px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    margin: 0 auto 90px;
+}
+  
+.list {
+    width: 952px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 36px;
+    column-gap: 56px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.item {
+    position: relative;
+}
+
+.item svg {
+    position: absolute;
+    top: 44px;
+    right: -52px;
+    transform: translate(-50%, -50%);
+}
+
+.input {
+    width: 204px;
+}
+
+.button {
+    width: 362px;
+}

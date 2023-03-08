@@ -1,0 +1,14 @@
+.form {
+    display: flex;
+    gap: 12px;
+    max-width: 567px;
+    margin: 0 auto;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    list-style: none;
+    margin: 40px 0 0 0;
+}

@@ -1,0 +1,23 @@
+.form {
+    display: flex;
+    gap: 12px;
+    max-width: 830px;
+    margin: 0 auto;
+}
+
+.ml80 {
+    margin-left: 80px;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    list-style: none;
+    margin: 40px 0 0 0;
+}
+
+.error {
+    margin: 40px auto 0 auto;
+    color: red;
+}
