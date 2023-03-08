@@ -26,6 +26,7 @@ export const QueuePage = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     setBtnLoader({...btnLoader, add: true});
+    setBtnDisabled({...btnDisabled, remove: true, clear: true}); 
     setCurrentIndex(queue.current.getTail());
     await delay(SHORT_DELAY_IN_MS);
 
@@ -46,6 +47,7 @@ export const QueuePage = () => {
 
   const removeStackItem = async () => {
     setBtnLoader({...btnLoader, remove: true});
+    setBtnDisabled({...btnDisabled, clear: true}); 
     setCurrentIndex(queue.current.getHead());
     queue.current.dequeue();
 
@@ -61,6 +63,7 @@ export const QueuePage = () => {
   }
 
   const clear = async () => {
+    setBtnDisabled({...btnDisabled, remove: true, clear: true}); 
     queue.current.clear();
     await delay(SHORT_DELAY_IN_MS);
     setArrayQueue([...queue.current.getArray()]);
@@ -97,7 +100,7 @@ export const QueuePage = () => {
           text={'Удалить'}
           onClick={removeStackItem}
           isLoader={btnLoader.remove}
-          disabled={queue.current.isEmpty || btnDisabled.remove}
+          disabled={btnDisabled.remove}
         />
 
         <Button

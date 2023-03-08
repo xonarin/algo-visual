@@ -29,6 +29,7 @@ export const ListPage = () => {
   const [deleteLoader, setDeleteLoader] = useState({ index: false, tail: false, head: false });
   const linkedList =useRef(new LinkedList(defaultArray));
   const data = linkedList.current.getData();
+  const [, update] = useState({});
 
   const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValues({ ...inputValues, [event.target.name]: event.target.value });
@@ -80,7 +81,7 @@ export const ListPage = () => {
 
       if (i > 0) {
         linkedList.current.changeState(i - 1, ElementStates.Changing);
-
+        update({});
       }
 
       await delay(SHORT_DELAY_IN_MS);
@@ -136,14 +137,14 @@ export const ListPage = () => {
     setDeleteLoader({ ...deleteLoader, index: true });
     for (let i = 0; i <= index; i++) {
       linkedList.current.changeState(i, ElementStates.Changing);
-
+      update({});
 
       await delay(SHORT_DELAY_IN_MS);
 
       if (i === index) {
         setDeleteCircle({ index: i, element: { value: data.array[index].element.value, state: ElementStates.Changing } });
         linkedList.current.changeValue(index);
-
+        update({});
       }
     }
 

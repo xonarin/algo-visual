@@ -15,10 +15,11 @@ export const StackPage = () => {
   const array = stack.current.getArray();
   const [stackInput, setStackInput] = useState<string>("");
   const [btnLoader, setBtnLoader] = useState({ add: false, remove: false });
-  const [btnDisabled, setBtnDisabled] = useState({ add: true, remove: true });
+  const [btnDisabled, setBtnDisabled] = useState({ add: true, remove: true, clear: true });
 
   const handleSubmit = async (event: FormEvent) => {
     setBtnLoader({...btnLoader, add: true});
+    setBtnDisabled({...btnDisabled, remove: true, clear: true}); 
     event.preventDefault();
     stack.current.push({value: stackInput, state: ElementStates.Changing});
 
@@ -27,24 +28,26 @@ export const StackPage = () => {
     
     stack.current.changeState(array.length - 1, ElementStates.Default);
     setBtnLoader({...btnLoader, add: false});
-    setBtnDisabled({...btnDisabled, add: true, remove: false}); 
+    setBtnDisabled({...btnDisabled, add: true, remove: false, clear: false}); 
   }
 
   const removeStackItem = async () => {
     setBtnLoader({ ...btnLoader, remove: true });
+    setBtnDisabled({...btnDisabled, clear: true}); 
     stack.current.changeState(array.length - 1, ElementStates.Changing);
 
     await delay(SHORT_DELAY_IN_MS);
 
     stack.current.pop();
     setBtnLoader({ ...btnLoader, remove: false });
-    setBtnDisabled({...btnDisabled, remove: stack.current.getSize() > 0 ? false : true});
+    setBtnDisabled({...btnDisabled, remove: stack.current.getSize() > 0 ? false : true, clear: false});
   }
 
 
   const clear = () => {
+    setBtnDisabled({...btnDisabled, clear: true}); 
     stack.current.clear();
-    setBtnDisabled({...btnDisabled, remove: stack.current.getSize() > 0 ? false : true});
+    setBtnDisabled({...btnDisabled, remove: true, clear: stack.current.getSize() > 0 ? false : true});
   }
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -83,7 +86,7 @@ export const StackPage = () => {
           text={'Очистить'}
           onClick={clear}
           extraClass={styles.ml80}
-          disabled={btnDisabled.remove}
+          disabled={btnDisabled.clear}
         />
       </form>
 
