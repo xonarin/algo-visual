@@ -81,7 +81,8 @@ export const StringComponent = () => {
                   state={
                     stateCircleIndex(stateIndex.start, stateIndex.end, index)
                   }
-                  letter={item}/>
+                  letter={item}
+                  />
               </li>
             )
           })}
