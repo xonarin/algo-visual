@@ -10,14 +10,14 @@ import { getFibonacciNumbers } from "./utils";
 import { maxFibonacciInput, minFibonacciInput } from "../../constants/min-max";
 
 export const FibonacciPage = () => {
-  const [value, setValue] = useState<number>(0);
+  const [value, setValue] = useState<number | string>('');
   const [btnLoader, setBtnLoader] = useState<boolean>(false);
   const [fibonacciArray, setFibonacciArray] = useState<number[]>([]);
-  const disabledValidate = value > 0 ? false : true;
+  const disabledValidate = Number(value) > 0 ? false : true;
 
   const getFib = async () => {
     let arr = [];
-    for (let i = 1; i <= value + 1; i++) {
+    for (let i = 1; i <= Number(value) + 1; i++) {
         await delay(SHORT_DELAY_IN_MS);
         arr.push(getFibonacciNumbers(i));
         setFibonacciArray([...arr]);
