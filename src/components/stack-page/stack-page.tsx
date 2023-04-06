@@ -72,6 +72,7 @@ export const StackPage = () => {
           text={'Добавить'}
           isLoader={btnLoader.add}
           disabled={btnDisabled.add}
+          data-testid='stack_add'
         />
 
         <Button
@@ -79,6 +80,7 @@ export const StackPage = () => {
           onClick={removeStackItem}
           isLoader={btnLoader.remove}
           disabled={btnDisabled.remove}
+          data-testid='stack_remove'
         />
 
 
@@ -87,6 +89,7 @@ export const StackPage = () => {
           onClick={clear}
           extraClass={styles.ml80}
           disabled={btnDisabled.clear}
+          data-testid='stack_clear'
         />
       </form>
 
