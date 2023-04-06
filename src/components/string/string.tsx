@@ -82,6 +82,7 @@ export const StringComponent = () => {
                     stateCircleIndex(stateIndex.start, stateIndex.end, index)
                   }
                   letter={item}
+                  data-testid='circle'
                   />
               </li>
             )

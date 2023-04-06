@@ -38,16 +38,4 @@ describe('Тестирование routes', () => {
         cy.visit(`${baseUrl}/list`);
         cy.get('h3').contains('Связный список');
     })
-
-
-
-
-
-
-
-
-
-
-
-
 })
