@@ -38,7 +38,7 @@ export const QueuePage = () => {
     setTail(queue.current.getTail());
     setCurrentIndex(tail);
     
-    await delay(SHORT_DELAY_IN_MS)
+    //await delay(SHORT_DELAY_IN_MS)
     
     setBtnLoader({...btnLoader, add: false});
     setBtnDisabled({...btnDisabled, add: true, remove: false, clear: false}); 
@@ -94,6 +94,7 @@ export const QueuePage = () => {
           text={'Добавить'}
           isLoader={btnLoader.add}
           disabled={btnDisabled.add}
+          data-testid='cypress_add'
         />
 
         <Button
@@ -101,6 +102,7 @@ export const QueuePage = () => {
           onClick={removeStackItem}
           isLoader={btnLoader.remove}
           disabled={btnDisabled.remove}
+          data-testid='cypress_remove'
         />
 
         <Button
@@ -108,6 +110,7 @@ export const QueuePage = () => {
           onClick={clear}
           extraClass={styles.ml80}
           disabled={btnDisabled.clear}
+          data-testid='cypress_clear'
         />
 
 

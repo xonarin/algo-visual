@@ -2,9 +2,9 @@ export const baseUrl = 'http://localhost:3000';
 
 export const input = 'input';
 export const circle = "[data-testid='circle_state']";
-export const buttonAdd = '[data-testid="stack_add"]';
-export const buttonRemove = '[data-testid="stack_remove"]';
-export const buttonClear = '[data-testid="stack_clear"]';
+export const buttonAdd = '[data-testid="cypress_add"]';
+export const buttonRemove = '[data-testid="cypress_remove"]';
+export const buttonClear = '[data-testid="cypress_clear"]';
 
 export const elementStatesColors = {
     default: "rgb(0, 50, 255)",
