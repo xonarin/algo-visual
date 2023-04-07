@@ -228,7 +228,6 @@ export const ListPage = () => {
             isLoader={deleteLoader.index}
             data-testid='list__remove-index'
           />
-
       </div>
         <ul className={styles.list}>
           {data.array &&
