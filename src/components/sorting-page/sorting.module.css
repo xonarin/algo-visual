@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 924px;
+    margin: 0 auto;
+}
+
+.radio, .buttons {
+    display: flex;
+    align-items: center;
+}
+
+.buttons {
+    gap: 12px;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    margin: 48px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ml40 {
+    margin-left: 40px;
+}
+
+.ml80 {
+    margin-left: 80px;
+}
