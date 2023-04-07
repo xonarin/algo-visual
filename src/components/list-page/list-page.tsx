@@ -201,6 +201,7 @@ export const ListPage = () => {
         />
 
         <Input
+          type="number"
           placeholder={'Введите индекс'}
           extraClass={`${styles.input}`}
           onChange={onInputChange}
@@ -215,7 +216,7 @@ export const ListPage = () => {
           <Button text={'Добавить по индексу'}
             extraClass={`${styles.button}`}
             onClick={() => addByIndex(Number(inputValues.index), inputValues.value)}
-            disabled={disabled ? true : !(inputValues.index && data.array.length > Number(inputValues.index) && inputValues.value)}
+            disabled={disabled ? true : !(inputValues.index && data.array.length > Number(inputValues.index) && inputValues.value && Number(inputValues.index) > -1)}
             isLoader={btnLoader.index}
             data-testid='list__add-index'
           />
@@ -223,7 +224,7 @@ export const ListPage = () => {
           <Button text={'Удалить по индексу'}
             extraClass={`${styles.button}`}
             onClick={() => deleteByIndex(Number(inputValues.index))}
-            disabled={disabled ? true : !(inputValues.index && data.array.length > Number(inputValues.index))}
+            disabled={disabled ? true : !(inputValues.index && data.array.length > Number(inputValues.index) && Number(inputValues.index) > -1)}
             isLoader={deleteLoader.index}
             data-testid='list__remove-index'
           />

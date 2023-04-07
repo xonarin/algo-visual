@@ -13,7 +13,7 @@ export const FibonacciPage = () => {
   const [value, setValue] = useState<number | string>('');
   const [btnLoader, setBtnLoader] = useState<boolean>(false);
   const [fibonacciArray, setFibonacciArray] = useState<number[]>([]);
-  const disabledValidate = Number(value) > 0 ? false : true;
+  const disabledValidate = Number(value) > 0 && Number(value) < 20 ? false : true;
 
   const getFib = async () => {
     let arr = [];
@@ -23,7 +23,7 @@ export const FibonacciPage = () => {
         setFibonacciArray([...arr]);
     }
     setBtnLoader(false);
-    setValue(0);
+    setValue('');
 }
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -45,6 +45,7 @@ export const FibonacciPage = () => {
           placeholder="Введите значение"
           min={minFibonacciInput}
           max={maxFibonacciInput}
+          maxLength={19}
           isLimitText={true}
           onChange={onChange}
           disabled={btnLoader}

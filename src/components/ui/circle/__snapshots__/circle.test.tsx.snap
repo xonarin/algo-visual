@@ -9,6 +9,7 @@ exports[`Тестирование компонента Circle Тест без б
   />
   <div
     className="circle   default"
+    data-testid="circle_state"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -32,6 +33,7 @@ exports[`Тестирование компонента Circle Тест в сос
   />
   <div
     className="circle   changing"
+    data-testid="circle_state"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -55,6 +57,7 @@ exports[`Тестирование компонента Circle Тест в сос
   />
   <div
     className="circle   default"
+    data-testid="circle_state"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -78,6 +81,7 @@ exports[`Тестирование компонента Circle Тест в сос
   />
   <div
     className="circle   modified"
+    data-testid="circle_state"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -103,6 +107,7 @@ exports[`Тестирование компонента Circle Тест с head 1
   </div>
   <div
     className="circle   default"
+    data-testid="circle_state"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -126,6 +131,7 @@ exports[`Тестирование компонента Circle Тест с index 
   />
   <div
     className="circle   default"
+    data-testid="circle_state"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -157,6 +163,7 @@ exports[`Тестирование компонента Circle Тест с react-
       />
       <div
         className="circle   default"
+        data-testid="circle_state"
       >
         <p
           className="text text_type_circle text_color_input letter"
@@ -172,6 +179,7 @@ exports[`Тестирование компонента Circle Тест с react-
   </div>
   <div
     className="circle   default"
+    data-testid="circle_state"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -195,6 +203,7 @@ exports[`Тестирование компонента Circle Тест с react-
   />
   <div
     className="circle   default"
+    data-testid="circle_state"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -214,6 +223,7 @@ exports[`Тестирование компонента Circle Тест с react-
       />
       <div
         className="circle   default"
+        data-testid="circle_state"
       >
         <p
           className="text text_type_circle text_color_input letter"
@@ -239,6 +249,7 @@ exports[`Тестирование компонента Circle Тест с tail 1
   />
   <div
     className="circle   default"
+    data-testid="circle_state"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -264,6 +275,7 @@ exports[`Тестирование компонента Circle Тест с бук
   />
   <div
     className="circle   default"
+    data-testid="circle_state"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -289,6 +301,7 @@ exports[`Тестирование компонента Circle Тест с про
   />
   <div
     className="circle  small default"
+    data-testid="circle_small"
   >
     <p
       className="text text_type_circle text_color_input letter"
