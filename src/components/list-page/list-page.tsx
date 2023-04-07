@@ -12,12 +12,10 @@ import { ElementStates } from "../../types/element-states";
 import styles from "./list.module.css";
 
 const defaultArray = [
-  { value: '0', state: ElementStates.Default },
-  { value: '34', state: ElementStates.Default },
-  { value: '8', state: ElementStates.Default },
   { value: '1', state: ElementStates.Default },
+  { value: '2', state: ElementStates.Default },
   { value: '3', state: ElementStates.Default },
-  { value: '54', state: ElementStates.Default }
+  { value: '4', state: ElementStates.Default }
 ]
 
 export const ListPage = () => {
@@ -171,30 +169,35 @@ export const ListPage = () => {
           name="value"
           disabled={disabled}
           value={inputValues.value}
+          data-testid='list__text-input'
         />
 
         <Button text={'Добавить в head'}
           onClick={() => addHead(inputValues.value)}
           disabled={disabled ? true : !inputValues.value}
           isLoader={btnLoader.head}
+          data-testid='list__add-head'
         />
 
         <Button text={'Добавить в tail'}
           onClick={() => addTail(inputValues.value)}
           disabled={disabled ? true : !inputValues.value}
           isLoader={btnLoader.tail}
+          data-testid='list__add-tail'
         />
 
         <Button text={'Удалить из head'}
           onClick={deleteHead}
           disabled={disabled ? true : data.array.length <= 0}
           isLoader={deleteLoader.head}
+          data-testid='list__remove-head'
         />
 
         <Button text={'Удалить из tail'}
           onClick={deleteTail}
           disabled={disabled ? true : data.array.length <= 0}
           isLoader={deleteLoader.tail}
+          data-testid='list__remove-tail'
         />
 
         <Input
@@ -206,6 +209,7 @@ export const ListPage = () => {
           max={data.array.length - 1}
           disabled={disabled}
           value={inputValues.index}
+          data-testid='list__index-input'
         />
 
           <Button text={'Добавить по индексу'}
@@ -213,6 +217,7 @@ export const ListPage = () => {
             onClick={() => addByIndex(Number(inputValues.index), inputValues.value)}
             disabled={disabled ? true : !(inputValues.index && data.array.length > Number(inputValues.index) && inputValues.value)}
             isLoader={btnLoader.index}
+            data-testid='list__add-index'
           />
 
           <Button text={'Удалить по индексу'}
@@ -220,6 +225,7 @@ export const ListPage = () => {
             onClick={() => deleteByIndex(Number(inputValues.index))}
             disabled={disabled ? true : !(inputValues.index && data.array.length > Number(inputValues.index))}
             isLoader={deleteLoader.index}
+            data-testid='list__remove-index'
           />
 
       </div>
